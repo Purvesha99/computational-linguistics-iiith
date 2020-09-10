@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="link.css">
+	<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function selectFunction(sel) {
+			if(sel=="null"){
+				alert("Select language");
+				return;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h2>Experiment</h2>
+	<div align="center">
+	<select id="selection" onChange="selectFunction(this.value);">
+		<option value="null">---Select Language---</option>
+		<option value="english">English</option>
+		<option value="hindi">Hindi</option>
+	</select>
+    </div>
+    <div>
+    	
+    </div>
+</body>
+</html>
