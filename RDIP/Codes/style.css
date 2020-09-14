@@ -1,10 +1,31 @@
 body{
 	background-color: #367588;
 }
+h1{
+	color: #FFCC66;
+}
 #links{
-	background-color: white;
+	background-color: #FFCC66;
+	width: 1000px;
+	height: 880px;
+	margin: 0 auto;
 }
 iframe{
-	height: 500px;
-	width: 1240px;
+	background-color: white;
+	height: 700px;
+	width: 800px;
+}
+img{
+	height: 70px;
+	width: 80px;
+}
+ul{
+	width: 600px;
+	margin: auto;
+}
+#links li{
+	float: left;
+}
+a:hover{
+	background-color: blue;
 }
