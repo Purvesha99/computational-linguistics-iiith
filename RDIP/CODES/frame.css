@@ -1,0 +1,19 @@
+table,td{
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+}
+.tab{
+	display: none;
+}
+#right{
+	font-size: 35px;
+	color: green;
+}
+#wrong{
+	color: red;
+	font-size: 35px;
+}
+#continue{
+	display: none;
+}
