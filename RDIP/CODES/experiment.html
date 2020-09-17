@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="frame.css">
 	<script type="text/javascript" src="combine.js"></script>
 	<script type="text/javascript" src="require.js"></script>
+	<script type="text/javascript" src="C:\Users\purvesha kshirsagar\Desktop\RDIP\assignment_4\Codes\node_modules\snowball\stemmer\lib\Snowball.min.js"></script>
 </head>
 <body>
 	<h1>Experiment</h1>
@@ -34,12 +35,15 @@
 		<br>
 		<button onclick="get();">Submit</button>
 	</div>
+
 	<p id="hel"></p>
-	<button align="center" id="continue" onclick="helo();">Continue</button>
-	<p align="center" id="after_continue">Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.<br>#new_types:</p>
-	<input id="new_types" align="center">
-	<button id="sub_b" onclick="sub();" align="center">Submit</button>
-	<p id="heliii"></p>
+	<div align="center">
+		<button id="continue" onclick="helo();">Continue</button>
+		<p id="after_continue">Now, consider all the tokens with the same 'root' word to be of the same type. Recalculate the number of types.<br>#new_types:</p>
+		<input id="new_types">
+	    <button id="sub_b" onclick="sub();">Submit</button>
+	    <p id="final"></p>
+	</div>
 
 	<script type="text/javascript">
 		var text='{"corp":['+
@@ -53,59 +57,44 @@
 		var third=obj.corp[2].corpus;
 		var dis=document.getElementById("dis");
 		var corp = document.getElementById("selectC");
+		var final = document.getElementById("final");
+		var new_types = document.getElementById("new_types");
+		var stemmer = new Snowball('English');
 
-		var Snowball = require('snowball');
-	    var stemmer = new Snowball('English');
-
-	    function helo(){
+	   function helo(){
 	    	after_continue.style.display="block";
 	    	new_types.style.display="block";
 	    	sub_b.style.display="block";
-	    	var heliii = document.getElementById("heliii");
-	    	var a=stemmer.setCurrent(abbreviations);     
-	    	a=a.stem();
-	    	heliii.innerHTML=(a.getCurrent());
 	    }
-	    
-		function selectCorpus(sel){
-			var corp_id=corp.options[corp.selectedIndex].value;
-			if(corp_id=="null"){
-				alert("Select a corpus");
-				return false;
-			}
-			if(corp_id=="corp1"){
-				document.getElementById("corpus").innerHTML=first;
-				tabl.style.display="block";
-				s=first;				
-			}
-			if(corp_id=="corp2"){
-				document.getElementById("corpus").innerHTML=second;
-				tabl.style.display="block";
-				s=second;
-			}
-			if(corp_id=="corp3"){
-				document.getElementById("corpus").innerHTML=third;
-				tabl.style.display="block";
-				s = third;
-			}
-		}
-
-		function get(){
-			    s = s.replace(/(^\s*)|(\s*$)/gi,"");
+	    	
+	    function yay(){
+	    	    s = abs.replace(/(^\s*)|(\s*$)/gi,"");
 	            s = s.replace(/[ ]{2,}/gi," ");
 	            s = s.replace(/\n /,"\n");
-	            s = s.split(' ');
-	            d = s.length;
-	            var ed=parseInt(d);
-	            var token_input=parseInt(document.getElementById("token_input").value);
-	            if(ed!=token_input){
-	            	document.getElementById("hel").innerHTML="<p id=\"wrong\" align=\"center\">Wrong Answer</p>";
-	            }
-	            else{
-	            	document.getElementById("hel").innerHTML="<p id=\"right\" align=\"center\">Right Answer</p>";
-	            	document.getElementById("continue").style.display="block";
-	            }
+	            stemming(s);
 	    }
+
+	    function stemming(s){
+	    	stemmer.setCurrent(s); 
+	    	stemmer.stem();
+	    	var a=stemmer.getCurrent();
+	    	unique(a);
+	    }
+
+	    function unique(str){
+	    	let set = new Set(str.split(' '));
+	    	return set.size;
+	    }
+
+	    function sub(){
+	   	if(new_types==yay()){
+	   		
+	   	}
+	   	else{
+	   		
+	   	}
+	   }
+
 	</script>
 </body>
 </html>
