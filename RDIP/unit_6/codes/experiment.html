@@ -4,8 +4,10 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script type="text/javascript" src="combine.js"></script>
+	<script type="text/javascript" src="require.js"></script>
 </head>
 <body>
+	<h1>Experiment</h1>
 	<div align="center" id="select1">
 		<select id="select1C" onchange="select(this.select);">
 			<option value="null">---Select Language---</option>
@@ -13,8 +15,9 @@
 			<option value="corp2">Hindi</option>
 		</select>
 	</div>
+	<br><br>
 	<div align="center" id="select2e">
-		<select id="select2e" onchange="select(this.select);">
+		<select onchange="select_e(this.select);">
 			<option value="null">---Select Sentence---</option>
 			<option value="corp1">The child liked the chocolate.</option>
 			<option value="corp1">She was stopped by the bravest knight.</option>
@@ -24,7 +27,7 @@
 		</select>
 	</div>
 	<div align="center" id="select2h">
-		<select id="select2h" onchange="select(this.select);">
+		<select onchange="select_h(this.select);">
 			<option value="null">---Select Sentence---</option>
 			<option value="corp1">राम ने सीता के लिए फल तोड़ा।</option>
 			<option value="corp2">छोटे बच्चे पाठशाला जल्दी आयेंगे।</option>
@@ -33,6 +36,7 @@
 			<option value="corp2">पेड़ से पत्ते गिर गए।</option>
 		</select>
 	</div>
+	<br><br>
 	<div align="center">
 		<table>
 			<tr>
@@ -80,6 +84,16 @@
 		obj1=JSON.parse(text1);
 		obj2=JSON.parse(text2);
 
+		var pos = require('pos');
+        var words = new pos.Lexer().lex(''); 
+        var tagger = new pos.Tagger();
+        var taggedWords = tagger.tag(words);
+        for (i in taggedWords) {
+        	var taggedWord = taggedWords[i];
+            var word = taggedWord[0];
+            var tag = taggedWord[1];
+            console.log(word + " /" + tag);
+        }
 	</script>
 </body>
 </html>
