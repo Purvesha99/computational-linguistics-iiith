@@ -9,7 +9,7 @@
 <body>
 	<h1>Experiment</h1>
 	<div align="center" id="select1">
-		<select id="select1C" onchange="select(this.select);">
+		<select id="select1C" onclick="select(this.select);">
 			<option value="null">---Select Language---</option>
 			<option value="corp1">English</option>
 			<option value="corp2">Hindi</option>
@@ -18,26 +18,26 @@
 	<br><br>
 	<div align="center" id="select2e">
 		<select onchange="select_e(this.select);">
-			<option value="null">---Select Sentence---</option>
-			<option value="corp1">The child liked the chocolate.</option>
-			<option value="corp1">She was stopped by the bravest knight.</option>
-			<option value="corp1">Mary baked a cake for his birthday</option>
-			<option value="corp1">She decorated the cake carefully.</option>
-			<option value="corp2">Mary wore a dress with polka dots.</option>
+			<option value="0">---Select Sentence---</option>
+			<option value="corp_e1">The child liked the chocolate.</option>
+			<option value="corp_e2">She was stopped by the bravest knight.</option>
+			<option value="corp_e3">Mary baked a cake for his birthday</option>
+			<option value="corp_e4">She decorated the cake carefully.</option>
+			<option value="corp_e5">Mary wore a dress with polka dots.</option>
 		</select>
 	</div>
 	<div align="center" id="select2h">
 		<select onchange="select_h(this.select);">
-			<option value="null">---Select Sentence---</option>
-			<option value="corp1">राम ने सीता के लिए फल तोड़ा।</option>
-			<option value="corp2">छोटे बच्चे पाठशाला जल्दी आयेंगे।</option>
-			<option value="corp2">मेहनत का फल मीठा होता है।</option>
-			<option value="corp2">वाह! वह खूबसूरत है।</option>
-			<option value="corp2">पेड़ से पत्ते गिर गए।</option>
+			<option value="-1">---Select Sentence---</option>
+			<option value="corp_h1">राम ने सीता के लिए फल तोड़ा।</option>
+			<option value="corp_h2">छोटे बच्चे पाठशाला जल्दी आयेंगे।</option>
+			<option value="corp_h3">मेहनत का फल मीठा होता है।</option>
+			<option value="corp_h4">वाह! वह खूबसूरत है।</option>
+			<option value="corp_h5">पेड़ से पत्ते गिर गए।</option>
 		</select>
 	</div>
 	<br><br>
-	<div align="center">
+	<div align="center" id="table_id">
 		<table>
 			<tr>
 				<td>LEXICON</td>
@@ -51,7 +51,7 @@
 					<select>
 						<option value="noun">Noun</option>
 					    <option value="pronoun">Pronoun</option>
-					    <option value="adjective">Adjective</option>
+					    <option value="adjective">AdjOective</option>
 					    <option value="adverb">Adverb</option>
 					    <option value="verb">Verb</option>
 					    <option value="proposition">Proposition</option>
@@ -86,7 +86,7 @@
 		obj2=JSON.parse(text2);
 
 		var pos = require('pos');
-        var words = new pos.Lexer().lex(''); 
+        var words = new pos.Lexer().lex(corp); 
         var tagger = new pos.Tagger();
         var taggedWords = tagger.tag(words);
         for (i in taggedWords) {
