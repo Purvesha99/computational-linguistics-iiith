@@ -2,8 +2,36 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div align="center" id="select1">
+		<select id="select1C" onchange="select(this.select);">
+			<option value="null">---Select Language---</option>
+			<option value="corp1">English</option>
+			<option value="corp2">Hindi</option>
+		</select>
+	</div>
+	<div align="center" id="select2e">
+		<select id="select2e" onchange="select(this.select);">
+			<option value="null">---Select Sentence---</option>
+			<option value="corp1">The child liked the chocolate.</option>
+			<option value="corp1">She was stopped by the bravest knight.</option>
+			<option value="corp1">Mary baked a cake for his birthday</option>
+			<option value="corp1">She decorated the cake carefully.</option>
+			<option value="corp2">Mary wore a dress with polka dots.</option>
+		</select>
+	</div>
+	<div align="center" id="select2h">
+		<select id="select2h" onchange="select(this.select);">
+			<option value="null">---Select Sentence---</option>
+			<option value="corp1">राम ने सीता के लिए फल तोड़ा।</option>
+			<option value="corp2">छोटे बच्चे पाठशाला जल्दी आयेंगे।</option>
+			<option value="corp2">मेहनत का फल मीठा होता है।</option>
+			<option value="corp2">वाह! वह खूबसूरत है।</option>
+			<option value="corp2">पेड़ से पत्ते गिर गए।</option>
+		</select>
+	</div>
 	<script type="text/javascript">
 		var text1='{"corp":['+
 		'{"corpus":"The child liked the chocolate."},'+
@@ -21,6 +49,7 @@
 
 		obj1=JSON.parse(text1);
 		obj2=JSON.parse(text2);
+
 	</script>
 </body>
 </html>
