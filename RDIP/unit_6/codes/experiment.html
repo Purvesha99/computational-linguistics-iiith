@@ -85,7 +85,7 @@
 		obj2=JSON.parse(text2);
 
 		var pos = require('pos');
-        var words = new pos.Lexer().lex(''); 
+        var words = new pos.Lexer().lex(corp_id); 
         var tagger = new pos.Tagger();
         var taggedWords = tagger.tag(words);
         for (i in taggedWords) {
