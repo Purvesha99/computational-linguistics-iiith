@@ -44,24 +44,23 @@
 			<tr>
 				<td></td>
 				<td>
-					<select onchange="check();">
-						<option>Noun</option>
-					    <option>Pronoun</option>
-					    <option>Adjective</option>
-					    <option>Adverb</option>
-					    <option>Verb</option>
-					    <option>Proposition</option>
-					    <option>Conjunction</option>
-					    <option>Interjection</option>
-					    <option>Determiner</option>
+					<select>
+						<option value="noun">Noun</option>
+					    <option value="pronoun">Pronoun</option>
+					    <option value="adjective">Adjective</option>
+					    <option value="adverb">Adverb</option>
+					    <option value="verb">Verb</option>
+					    <option value="proposition">Proposition</option>
+					    <option value="conjunction">Conjunction</option>
+					    <option value="interjection">Interjection</option>
+					    <option value="determiner">Determiner</option>
 				    </select>
 			    </td>
 			    <td id="ri_wr"></td>
+			    <td></td>
 			</tr>
-			<tr></tr>
-			<tr></tr>
 		</table>
-		<button>Submit</button>
+		<button type="Submit" onclick="check();">Submit</button>
 	</div>
 	<script type="text/javascript">
 		var text1='{"corp":['+
